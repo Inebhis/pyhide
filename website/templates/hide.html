@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Hide{% endblock %}
+{% block content %}
+<div class="row">
+    <h3 align="center">Hide</h3>
+    <form method="POST" enctype="multipart/form-data">
+        <p>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul>
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+        </p>
+        
+        <div class="mb-3">
+            <label for="text">Text to hide</label>
+            <input type="text" class="form-control" id="text" name="text" placeholder="Text to hide">
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Image</label>
+            <input class="form-control" type="file" id="image" name="image">
+        </div>
+        <br>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+    {% if image_name %}
+        <div class="mb-3" align="center">
+            <br><p>Vous avez caché un votre message dans votre image : {{ filename }}</p>
+            <img src="{{ url_for('views.display', filename=image_name) }}", style="max-width: 600px; max-height: 600px;">
+        </div>
+    {% endif %}
+{% endblock %}
+</div>

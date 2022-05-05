@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1 align="center">Steganography</h1>
+<br>
+<div class="mb-3">
+    <p align="center">Steganography is the practice of concealing a message within another message or a physical object. 
+        In computing/electronic contexts, a computer file, message, image, or video is concealed within another file, message, image, or video. 
+        <br>For this evaluation, I choosed to hide messages on images.</p>
+</div>
+<div class="row">
+    <div class="col">
+        <a href="/hide"><button class="btn btn-success form-control  btn-block">Hide a message</button></a>
+    </div>
+    <div class="col">
+        <a href="/unhide"><button class="btn btn-danger form-control btn-block">Unhide a message</button></a>
+    </div>
+</div>
+{% endblock %}
